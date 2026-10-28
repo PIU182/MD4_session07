@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: medical-config-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: patient_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - medical_config_pgdata:/var/lib/postgresql/data
+
+  mysql:
+    image: mysql:8.4
+    container_name: medical-config-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: patient_db_dev
+    ports:
+      - "3306:3306"
+    volumes:
+      - medical_config_mysqldata:/var/lib/mysql
+
+volumes:
+  medical_config_pgdata:
+  medical_config_mysqldata:

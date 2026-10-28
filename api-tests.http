@@ -1,0 +1,33 @@
+### Config Server default
+GET http://localhost:8888/patient-service/default
+
+### Config Server dev
+GET http://localhost:8888/patient-service/dev
+
+### Config Server prod
+GET http://localhost:8888/patient-service/prod
+
+### Welcome default/dev
+GET http://localhost:8081/welcome
+
+### Create Patient default/dev
+POST http://localhost:8081/api/v1/patients
+Content-Type: application/json
+
+{
+  "fullName": "Nguyen Van An",
+  "dateOfBirth": "2000-05-20",
+  "gender": "Nam",
+  "phoneNumber": "0912345678",
+  "address": "Ha Noi",
+  "medicalHistory": "Di ung Penicillin"
+}
+
+### Refresh default/dev
+POST http://localhost:8081/actuator/refresh
+
+### Prod welcome
+GET http://localhost:8082/welcome
+
+### Prod refresh
+POST http://localhost:8082/actuator/refresh
